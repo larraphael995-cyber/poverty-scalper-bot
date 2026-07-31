@@ -2,9 +2,7 @@ import streamlit as st
 import json
 import urllib.request
 
-# ─── LOCAL IP TESTING CONFIGURATION ───
-# We leave this placeholder link here for your first launch.
-# Once we deploy your backend to Render, we will swap this with your live server link.
+# ─── CORE PRODUCTION ENGINE LINK ───
 API_URL = "https://onrender.com"
 
 st.set_page_config(page_title="Poverty Scalper Console", layout="wide", page_icon="⚡")
@@ -14,7 +12,7 @@ st.title("⚡ Poverty Scalper: Dual-Market AI Command Center")
 def secure_fetch_status(url):
     try:
         req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-        with urllib.request.urlopen(req, timeout=5) as response:
+        with urllib.request.urlopen(req, timeout=8) as response:
             return json.loads(response.read().decode())
     except:
         return None
@@ -38,13 +36,13 @@ with col_crypto:
     if is_crypto_live:
         if st.button("🔴 DEACTIVATE CRYPTO BOT", use_container_width=True, key="btn_crypto_off"):
             try:
-                urllib.request.urlopen(API_URL.replace("/status", "/toggle_crypto?status=false"), timeout=5)
+                urllib.request.urlopen("https://onrender.com", timeout=8)
                 st.rerun()
             except: st.error("Failed to transmit command.")
     else:
         if st.button("🟢 ACTIVATE CRYPTO BOT", type="primary", use_container_width=True, key="btn_crypto_on"):
             try:
-                urllib.request.urlopen(API_URL.replace("/status", "/toggle_crypto?status=true"), timeout=5)
+                urllib.request.urlopen("https://onrender.com", timeout=8)
                 st.rerun()
             except: st.error("Failed to transmit command.")
 
@@ -57,13 +55,13 @@ with col_forex:
     if is_forex_live:
         if st.button("🔴 DEACTIVATE FOREX BOT", use_container_width=True, key="btn_forex_off"):
             try:
-                urllib.request.urlopen(API_URL.replace("/status", "/toggle_forex?status=false"), timeout=5)
+                urllib.request.urlopen("https://onrender.com", timeout=8)
                 st.rerun()
             except: st.error("Failed to transmit command.")
     else:
         if st.button("🟢 ACTIVATE FOREX BOT", type="primary", use_container_width=True, key="btn_forex_on"):
             try:
-                urllib.request.urlopen(API_URL.replace("/status", "/toggle_forex?status=true"), timeout=5)
+                urllib.request.urlopen("https://onrender.com", timeout=8)
                 st.rerun()
             except: st.error("Failed to transmit command.")
 
