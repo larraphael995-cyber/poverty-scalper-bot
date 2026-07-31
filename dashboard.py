@@ -5,7 +5,7 @@ import urllib.request
 # ─── LOCAL IP TESTING CONFIGURATION ───
 # We leave this placeholder link here for your first launch.
 # Once we deploy your backend to Render, we will swap this with your live server link.
-API_URL = "http://127.0.0"
+API_URL = "https://onrender.com"
 
 st.set_page_config(page_title="Poverty Scalper Console", layout="wide", page_icon="⚡")
 st.title("⚡ Poverty Scalper: Dual-Market AI Command Center")
