@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+pandas
+ta
+ccxt
+streamlit
+requests
+websockets
